@@ -1,0 +1,51 @@
+﻿@model NorthWind_Handling.Models.ProductViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Update</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <a href="/product/index">Home</a>
+        @using (Html.BeginForm("Create", "Product", FormMethod.Post, new { @class = "form-group" }))
+
+        {
+            <div class="form-group">
+                @Html.ValidationSummary();
+                @Html.LabelFor(p => p.ID);
+                @Html.TextBoxFor(p => p.ID);
+                @Html.ValidationMessageFor(p => p.ID);
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(p => p.ProductName)
+                    @Html.EditorFor(p => p.ProductName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(p => p.ProductName)
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(p => p.SupplierID)
+                    @Html.EditorFor(p => p.SupplierID, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(p => p.SupplierID)
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(p => p.Discontinued)
+                    @Html.EditorFor(p => p.Discontinued, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(p => p.Discontinued)
+                </div>
+                <input type="submit" value="Create" class="btn btn-primary" />
+                }
+
+            </div>
+
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+﻿@model NorthWind_Handling.Models.ProductViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="wi   dth=device-width" />
+    <title>Create</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+</head>
+<body>
+        <div>
+        <a href="/product/index">Home</a>
+        @using (Html.BeginForm("Create", "Product", FormMethod.Post))
+
+            {
+            @Html.ValidationSummary();
+            @Html.LabelFor(p => p.ID);
+            @Html.TextBoxFor(p => p.ID);
+            @Html.ValidationMessageFor(p => p.ID);
+
+            <br />
+            @Html.LabelFor(p => p.ProductName);
+            @Html.TextBoxFor(p => p.ProductName);
+            @Html.ValidationMessageFor(p => p.ProductName);
+            <br />
+            @Html.LabelFor(p => p.SupplierID);
+            @Html.TextBoxFor(p => p.SupplierID);
+            @Html.ValidationMessageFor(p => p.SupplierID);
+            <br />
+            @Html.LabelFor(p => p.Discontinued);
+            @Html.TextBoxFor(p => p.Discontinued);
+            @Html.ValidationMessageFor(p => p.Discontinued);
+
+            <input type="submit" value="Create" />
+        }
+    </div>
+
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<NorthWind_Handling.Models.Product>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <br />
+
+@Html.ActionLink("ADD Product ", "Create", "Product", htmlAttributes: new { @class = "btn btn-primary" })
+        <br />
+        <br />
+        <table class="table table-bordered border-primary">
+            <tr>
+
+                <th>ProductID</th>
+                <th>ProductName</th>
+                <th>SupplierID</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ProductID</td>
+                    <td>@item.ProductName</td>
+                    <td>@item.SupplierID</td>
+                    <td>@Html.ActionLink("Edit", "Update", "Product", htmlAttributes: new { @class = "btn btn-danger" },routeValues: new { id = item.ProductID })</td>
+                    <td>@Html.ActionLink("Delete", "Delete", "Product", htmlAttributes: new { @class = "btn btn-success" }, routeValues: new { id = item.ProductID })</td>
+                
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>
